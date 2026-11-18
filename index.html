@@ -1,0 +1,548 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Fajer Al-Shahrani</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one tall editorial column, wide hero, ruled sections with a left label rail; dark emerald-ink first, ivory light twin. */
+:root{
+  --bg:#0b1411; --bg2:#101c18; --fg:#ece6d6; --muted:#9aa89f; --line:#24352e;
+  --accent:#c9a45c; --accent-ink:#0b1411; --card:#122019;
+  --f-display:"Cormorant Garamond","Amiri",Georgia,serif;
+  --f-body:"Inter","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#f6f1e4;--bg2:#efe8d6;--fg:#12231c;--muted:#53655b;--line:#d6cdb5;--accent:#8a6a24;--accent-ink:#f6f1e4;--card:#fbf8ef;color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#f6f1e4;--bg2:#efe8d6;--fg:#12231c;--muted:#53655b;--line:#d6cdb5;--accent:#8a6a24;--accent-ink:#f6f1e4;--card:#fbf8ef;color-scheme:light}
+:root[data-theme="dark"]{--bg:#0b1411;--bg2:#101c18;--fg:#ece6d6;--muted:#9aa89f;--line:#24352e;--accent:#c9a45c;--accent-ink:#0b1411;--card:#122019;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.65 var(--f-body);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic",var(--f-body);line-height:1.9}
+html[lang="en"] .ar,html[lang="ar"] .en{display:none}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* top bar */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.mark{font-family:var(--f-display);font-size:22px;letter-spacing:.04em;text-decoration:none}
+.mark b{color:var(--accent);font-weight:500}
+nav{display:flex;gap:22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+html[lang="ar"] nav{letter-spacing:0;text-transform:none;font-size:14px}
+.tools{display:flex;gap:8px}
+.btn{font:500 12px var(--f-mono);border:1px solid var(--line);background:transparent;color:var(--fg);padding:7px 12px;cursor:pointer;border-radius:2px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:760px){nav{display:none}}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(56px,9vw,120px) clamp(48px,7vw,90px);overflow:hidden}
+.hero svg.pat{position:absolute;inset-inline-end:-120px;top:-40px;width:560px;max-width:90vw;opacity:.16;color:var(--accent);pointer-events:none}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
+html[lang="ar"] .eyebrow{letter-spacing:0;font-family:var(--f-body);font-size:14px}
+h1{font-family:var(--f-display);font-weight:500;font-size:clamp(52px,10vw,128px);line-height:.98;margin:0 0 26px;letter-spacing:-.01em;text-wrap:balance}
+html[lang="ar"] h1{font-family:"Amiri",serif;line-height:1.25;font-weight:700}
+h1 em{font-style:italic;color:var(--accent)}
+.lead{font-size:clamp(17px,2vw,21px);max-width:640px;color:var(--muted);margin:0 0 34px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.cta a{padding:13px 22px;text-decoration:none;font-size:14px;letter-spacing:.04em;border:1px solid var(--accent);border-radius:2px}
+.cta a.p{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.cta a:not(.p){color:var(--accent)}
+.cta a:hover{filter:brightness(1.1)}
+.facts{display:flex;gap:clamp(20px,4vw,56px);flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font:400 12px var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.facts span b{display:block;color:var(--fg);font:500 15px var(--f-body);letter-spacing:0;margin-top:2px}
+
+/* sections */
+section{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(20px,4vw,56px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line)}
+@media (max-width:760px){section{grid-template-columns:1fr;gap:14px}}
+.rail{font:500 12px var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding-top:10px}
+html[lang="ar"] .rail{letter-spacing:0;font-family:var(--f-body);font-size:14px}
+h2{font-family:var(--f-display);font-weight:500;font-size:clamp(30px,4.2vw,50px);line-height:1.1;margin:0 0 22px;text-wrap:balance}
+html[lang="ar"] h2{font-family:"Amiri",serif;font-weight:700;line-height:1.35}
+h3{font-size:18px;margin:0 0 6px;font-weight:600}
+p{margin:0 0 16px;max-width:68ch}
+.muted{color:var(--muted)}
+
+/* project */
+.proj{background:var(--card);border:1px solid var(--line);padding:clamp(20px,3.5vw,40px);border-radius:2px}
+.proj h3{font-family:var(--f-display);font-weight:500;font-size:clamp(28px,4vw,42px);margin-bottom:6px}
+html[lang="ar"] .proj h3{font-family:"Amiri",serif;font-weight:700}
+.tag{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:block}
+html[lang="ar"] .tag{letter-spacing:0;font-family:var(--f-body);font-size:13px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin:26px 0}
+.cols>div{min-width:0;border-top:1px solid var(--accent);padding-top:14px}
+.cols h4{margin:0 0 6px;font-size:15px}
+.cols p{font-size:14.5px;color:var(--muted);margin:0}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:6px 0 24px}
+.nums div{border:1px solid var(--line);padding:14px 16px;min-width:0}
+.nums b{display:block;font:500 26px var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.nums span{font-size:12.5px;color:var(--muted);line-height:1.4;display:block}
+.note{border-inline-start:2px solid var(--accent);padding:2px 0 2px 16px;font-size:14.5px;color:var(--muted);max-width:68ch}
+html[lang="ar"] .note{padding:2px 16px 2px 0}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.links a{font:500 13px var(--f-mono);color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+
+/* lists */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);padding:6px 13px;font-size:13.5px;border-radius:2px}
+.grp{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+html[lang="ar"] .grp{letter-spacing:0;font-family:var(--f-body);font-size:13px}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0;padding-top:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.when{font:400 12.5px var(--f-mono);color:var(--muted)}
+.row ul{margin:8px 0 0;padding-inline-start:18px;color:var(--muted);font-size:14.5px}
+.row li{margin-bottom:4px}
+
+footer{border-top:1px solid var(--line);padding-block:44px 64px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+footer .big{font-family:var(--f-display);font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0}
+html[lang="ar"] footer .big{font-family:"Amiri",serif;line-height:1.3}
+footer small{color:var(--muted);font:400 12px var(--f-mono)}
+@media (prefers-reduced-motion:no-preference){.hero h1,.hero .lead,.hero .cta{animation:rise .8s both}.hero .lead{animation-delay:.12s}.hero .cta{animation-delay:.22s}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* live layer */
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero>*:not(canvas):not(svg){position:relative;z-index:1}
+.hero svg.pat{animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.typed{font:500 clamp(15px,2vw,19px) var(--f-mono);color:var(--fg);margin:0 0 20px;min-height:1.6em}
+html[lang="ar"] .typed{font-family:var(--f-body)}
+.typed i{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:-.2em;margin-inline-start:3px;animation:blink 1s steps(1) infinite}
+.typed #tw{color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--accent)}
+.glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 65%);opacity:.10;pointer-events:none;z-index:0;will-change:transform}
+@media (pointer:coarse){.glow{display:none}}
+main,footer{position:relative;z-index:1}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding-block:16px;direction:ltr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq div{display:flex;gap:40px;width:max-content;animation:mq 38s linear infinite;font:400 clamp(22px,3vw,34px) var(--f-display);color:var(--muted);white-space:nowrap}
+.mq span:nth-child(odd){color:var(--fg)}
+.mq span::after{content:"\2726";color:var(--accent);font-size:.55em;margin-inline-start:40px;vertical-align:.25em}
+.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.cols>div,.nums div,.chips li,.proj{transition:transform .35s,border-color .35s,background .35s}
+.cols>div:hover,.nums div:hover{transform:translateY(-4px);border-color:var(--accent)}
+.chips li:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.proj:hover{border-color:var(--accent)}
+.lab{display:grid;gap:clamp(36px,5vw,56px);min-width:0}
+.frame{border:1px solid var(--line);background:var(--card);border-radius:6px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.55);min-width:0}
+.frame .tb{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);direction:ltr}
+.frame .tb i{width:9px;height:9px;border-radius:50%;background:var(--line);flex:none}
+.frame .tb span{margin-inline-start:10px;font:400 12px var(--f-mono);color:var(--muted);background:var(--bg2);padding:4px 12px;border-radius:3px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame img{display:block;width:100%;height:auto}
+.lab>div,.lab .tb,.shots>*,.three>*{min-width:0}
+.vid{margin-bottom:22px}
+.tw{overflow-x:auto;border:1px solid var(--line);margin-bottom:26px}
+.spec{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px;text-align:start}
+.spec th{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:start;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--bg2);white-space:nowrap}
+html[lang="ar"] .spec th{letter-spacing:0;font-family:var(--f-body);font-size:13px;text-transform:none}
+.spec td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted);direction:ltr;text-align:start}
+.spec td:first-child{color:var(--fg);font-weight:500;direction:inherit}
+.spec td:nth-child(2){color:var(--fg);font-family:var(--f-mono);font-size:12.5px}
+.spec tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(20px,4vw,44px)}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.lim{margin:0;padding-inline-start:18px;color:var(--muted);font-size:14px;display:grid;gap:8px}
+.lim li::marker{color:var(--accent)}
+.vid video{display:block;width:100%;height:auto;background:var(--bg2)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:22px}
+@media (max-width:760px){.three{grid-template-columns:1fr}}
+.three figure{margin:0;min-width:0}
+.three figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+.three figcaption b{display:block;font:500 11px var(--f-mono);letter-spacing:.14em;color:var(--accent);margin-bottom:4px}
+html[lang="ar"] .three figcaption b{letter-spacing:0;font-family:var(--f-body);font-size:13px}
+.shots{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
+.lab h3{font-family:var(--f-display);font-weight:500;font-size:clamp(24px,3vw,32px);margin:0 0 4px}
+html[lang="ar"] .lab h3{font-family:"Amiri",serif;font-weight:700}
+.lab .sub{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:62ch}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;direction:ltr}
+.flow div{flex:1 1 140px;min-width:0;border:1px solid var(--line);padding:14px;position:relative;background:var(--card)}
+.flow small{font:500 10.5px var(--f-mono);letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:6px}
+.flow b{font-size:14.5px;display:block;line-height:1.35}
+.flow span{font-size:12.5px;color:var(--muted);display:block;margin-top:4px;line-height:1.4}
+html[lang="ar"] .flow{direction:rtl}
+.big6{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--line)}
+.big6 div{padding:20px 18px;border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.big6 b{display:block;font:500 clamp(30px,4vw,44px)/1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums;margin-bottom:8px}
+.big6 span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+.bars{display:grid;gap:14px}
+.bl{display:grid;grid-template-columns:150px minmax(0,1fr) 60px;gap:12px;align-items:center;font-size:13.5px}
+@media (max-width:560px){.bl{grid-template-columns:1fr 50px}.bl>span:first-child{grid-column:1/-1}}
+.track{height:12px;background:var(--bg2);border:1px solid var(--line);position:relative;direction:ltr}
+.fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);transition:width 1.3s cubic-bezier(.2,.7,.2,1) .2s}
+.in .fill,.in.fill{width:var(--w)}
+.bl em{font:500 14px var(--f-mono);font-style:normal;text-align:end;font-variant-numeric:tabular-nums}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);border:1px solid var(--line);background:var(--card);padding:clamp(18px,3vw,32px)}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.calc label{display:flex;justify-content:space-between;font:500 12px var(--f-mono);letter-spacing:.06em;color:var(--muted);margin:16px 0 6px}
+.calc label:first-child{margin-top:0}
+.calc select{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);padding:10px;font:inherit;border-radius:2px}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.score{display:flex;flex-direction:column;justify-content:center;gap:14px;min-width:0}
+.score .n{font:500 clamp(72px,12vw,120px)/1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.score .bd{font:600 13px var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
+.gauge{display:flex;height:10px;gap:3px;direction:ltr}
+.gauge i{flex:0 0 auto;background:var(--bg2);border:1px solid var(--line);position:relative}
+.gauge i.on{background:var(--accent);border-color:var(--accent)}
+.score p{font-size:13px;color:var(--muted);margin:0}
+.rule{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px;direction:ltr}
+.rule span{border:1px solid var(--accent);color:var(--accent);padding:7px 14px;font:500 13px var(--f-mono)}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+@media (prefers-reduced-motion:reduce){.hero svg.pat,.mq div{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+</style>
+
+<header><div class="wrap bar">
+  <a class="mark" href="#top">F<b>·</b>A</a>
+  <nav>
+    <a href="#about"><span class="en">About</span><span class="ar">نبذة</span></a>
+    <a href="#work"><span class="en">Project</span><span class="ar">المشروع</span></a>
+    <a href="#lab"><span class="en">Inside</span><span class="ar">من الداخل</span></a>
+    <a href="#skills"><span class="en">Skills</span><span class="ar">المهارات</span></a>
+    <a href="#path"><span class="en">Path</span><span class="ar">المسيرة</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="ar">تواصل</span></a>
+  </nav>
+  <div class="tools">
+    <button class="btn" id="lang" type="button" aria-label="Language">عربي</button>
+    <button class="btn" id="theme" type="button" aria-label="Theme">◐</button>
+  </div>
+</div><div class="prog" id="prog"></div></header>
+<div class="glow" id="glow"></div>
+
+<main class="wrap" id="top">
+<div class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <svg class="pat" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6" aria-hidden="true">
+    <g id="star"><rect x="50" y="50" width="100" height="100"/><rect x="50" y="50" width="100" height="100" transform="rotate(45 100 100)"/></g>
+    <use href="#star" transform="rotate(22.5 100 100)"/>
+    <circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="42"/><circle cx="100" cy="100" r="14"/>
+    <circle cx="100" cy="100" r="96"/>
+  </svg>
+  <p class="eyebrow"><span class="en">AI Engineer · Machine Learning · Computer Vision</span><span class="ar">مهندسة ذكاء اصطناعي · تعلّم آلة · رؤية حاسوبية</span></p>
+  <h1><span class="en">Fajer<br><em>Al-Shahrani</em></span><span class="ar">فجر <em>الشهراني</em></span></h1>
+  <p class="typed"><span class="en">I build </span><span class="ar">أبني </span><span id="tw">road-damage detectors</span><i></i></p>
+  <p class="lead"><span class="en">Computer Science graduate from King Khalid University, with the AI track. I build models that solve a clear problem, and I report what they can and cannot do.</span><span class="ar">خريجة علوم الحاسب من جامعة الملك خالد، مسار الذكاء الاصطناعي. أبني نماذج تحل مشكلة واضحة، وأذكر بصراحة ما تقدر عليه وما لا تقدر عليه.</span></p>
+  <div class="cta">
+    <a class="p" href="https://3eye-roadscan.streamlit.app" target="_blank" rel="noopener"><span class="en">Open the live demo</span><span class="ar">جرّب التطبيق</span></a>
+    <a href="https://github.com/fajer-alshahrani" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/fajer-alshahrani" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="facts">
+    <span><span class="en">BASED IN</span><span class="ar">المدينة</span><b><span class="en">Abha, Saudi Arabia</span><span class="ar">أبها، السعودية</span></b></span>
+    <span><span class="en">GPA</span><span class="ar">المعدل</span><b>4.41 / 5</b></span>
+    <span><span class="en">BOOTCAMP</span><span class="ar">المعسكر</span><b>AIEP · 200 h</b></span>
+    <span><span class="en">OPEN TO</span><span class="ar">متاحة لـ</span><b><span class="en">Junior AI / ML roles</span><span class="ar">وظائف AI / ML مبتدئة</span></b></span>
+  </div>
+</div>
+
+<div class="mq" aria-hidden="true"><div>
+  <span>Python</span><span>PyTorch</span><span>Computer Vision</span><span>YOLOv8</span><span>ResNet-18</span><span>DINOv2</span><span>FAISS</span><span>scikit-learn</span><span>pandas</span><span>SQL</span>
+  <span>Python</span><span>PyTorch</span><span>Computer Vision</span><span>YOLOv8</span><span>ResNet-18</span><span>DINOv2</span><span>FAISS</span><span>scikit-learn</span><span>pandas</span><span>SQL</span>
+</div></div>
+
+<section id="about">
+  <div class="rail"><span class="en">About</span><span class="ar">نبذة</span></div>
+  <div>
+    <h2><span class="en">Careful models, honest results.</span><span class="ar">نماذج بعناية، ونتائج بصدق.</span></h2>
+    <p><span class="en">I graduated in Computer Science from King Khalid University (Second Class Honors, GPA 4.41/5) and completed the AI Engineer Program (AIEP) by Olo Academy with the Ministry of Communications and Information Technology. My work covers image classification, object detection and similarity search in Python and PyTorch.</span><span class="ar">تخرجت في علوم الحاسب من جامعة الملك خالد (مرتبة الشرف الثانية، معدل 4.41 من 5) وأنهيت برنامج مهندس الذكاء الاصطناعي (AIEP) من أكاديمية أولو بالتعاون مع وزارة الاتصالات وتقنية المعلومات. أعمل على تصنيف الصور وكشف الأجسام والبحث بالتشابه بلغة Python وPyTorch.</span></p>
+    <p class="muted"><span class="en">I am looking for a junior AI / ML engineer role in Saudi Arabia, where I can keep building and learning on real data.</span><span class="ar">أبحث عن وظيفة مهندسة ذكاء اصطناعي / تعلّم آلة مبتدئة في السعودية، أكمل فيها البناء والتعلم على بيانات حقيقية.</span></p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="rail"><span class="en">Featured project</span><span class="ar">المشروع المميز</span></div>
+  <div class="proj">
+    <span class="tag"><span class="en">AIEP capstone · team of three · prototype</span><span class="ar">مشروع التخرج في AIEP · فريق من ثلاث · نموذج أولي</span></span>
+    <h3>3-Eye RoadScan</h3>
+    <p><span class="en">A system that reads road photos, finds damage and ranks which reports a maintenance team should handle first. The detector (YOLOv8s) finds four types: longitudinal crack, transverse crack, alligator crack and pothole. Training data is RDD2022, 8,999 images from three countries.</span><span class="ar">نظام يقرأ صور الطرق ويكتشف التلف ويرتّب البلاغات التي يبدأ بها فريق الصيانة. الكاشف (YOLOv8s) يتعرف على أربعة أنواع: شق طولي، شق عرضي، تشقق جلد التمساح، وحفرة. بيانات التدريب RDD2022 وفيها 8,999 صورة من ثلاث دول.</span></p>
+    <div class="cols">
+      <div><h4><span class="en">Baseline classifier</span><span class="ar">النموذج الأساسي</span></h4><p><span class="en">ResNet-18 trained as the reference point every later change is compared to.</span><span class="ar">ResNet-18 كنقطة مقارنة تُقاس عليها أي تحسينات لاحقة.</span></p></div>
+      <div><h4><span class="en">Priority score</span><span class="ar">درجة الأولوية</span></h4><p><span class="en">A 0–100 score from damage type, size, count and confidence. A ±20% weight test left the top 10 unchanged.</span><span class="ar">درجة من 0 إلى 100 من نوع التلف وحجمه وعدده والثقة. تغيير الأوزان ±20% لم يغيّر أعلى 10.</span></p></div>
+      <div><h4><span class="en">Duplicate finder</span><span class="ar">كاشف التكرار</span></h4><p><span class="en">DINOv2 image embeddings with FAISS search, plus class and GPS distance, so one pothole reported twice becomes one case.</span><span class="ar">تمثيلات DINOv2 مع بحث FAISS، مع النوع والمسافة بالـGPS، فالحفرة المبلّغ عنها مرتين تصير حالة واحدة.</span></p></div>
+    </div>
+    <div class="nums">
+      <div><b>0.496</b><span><span class="en">baseline macro-F1, validation</span><span class="ar">macro-F1 للنموذج الأساسي، تحقق</span></span></div>
+      <div><b>0.362</b><span><span class="en">same model on US data</span><span class="ar">نفس النموذج على بيانات أمريكا</span></span></div>
+      <div><b>8 / 9</b><span><span class="en">duplicates caught, with GPS</span><span class="ar">تكرارات تم التقاطها مع GPS</span></span></div>
+      <div><b>0 / 24</b><span><span class="en">false merges on the test set</span><span class="ar">دمج خاطئ في مجموعة الاختبار</span></span></div>
+    </div>
+    <p><strong><span class="en">My part.</span><span class="ar">جزئيتي.</span></strong> <span class="en">The ResNet-18 baseline and its evaluation, the priority score with its sensitivity check, and the duplicate finder compared against two other methods. Staff make the final call on every merge.</span><span class="ar">النموذج الأساسي ResNet-18 وتقييمه، ودرجة الأولوية مع اختبار الحساسية، وكاشف التكرار مقارنةً بطريقتين أخريين. الموظف يتخذ القرار النهائي في كل دمج.</span></p>
+    <p class="note"><span class="en">Limits, stated plainly: this is a prototype. The score weights and the Urgent / Schedule / Monitor bands are proposals that a road authority would need to validate. The macro-F1 drop on US data shows the model does not transfer well across countries.</span><span class="ar">الحدود بوضوح: هذا نموذج أولي. أوزان الدرجة ونطاقات عاجل / جدولة / مراقبة مقترحات تحتاج جهة الطرق لاعتمادها. انخفاض macro-F1 على بيانات أمريكا يعني أن النموذج لا ينتقل جيدًا بين الدول.</span></p>
+    <div class="links">
+      <a href="https://3eye-roadscan.streamlit.app" target="_blank" rel="noopener">LIVE DEMO ↗</a>
+      <a href="https://github.com/saravii7/3-EyeRoadScanProject" target="_blank" rel="noopener">SOURCE CODE ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="rail"><span class="en">Inside the project</span><span class="ar">داخل المشروع</span></div>
+  <div class="lab">
+  <div>
+    <h3><span class="en">The live app</span><span class="ar">التطبيق الحي</span></h3>
+    <p class="sub"><span class="en">Arabic interface for citizens. Report a damaged road in four steps, then follow its status from new to fixed.</span><span class="ar">واجهة عربية للمواطن. تبلّغ عن طريق متضرر في أربع خطوات ثم تتابع حالته من جديد إلى تم الإصلاح.</span></p>
+    <div class="frame vid"><div class="tb"><i></i><i></i><i></i><span>3eye-roadscan.streamlit.app · 41 s demo</span></div><video src="demo.mp4" poster="poster.jpg" muted autoplay loop playsinline controls preload="metadata"></video></div>
+    <div class="three">
+      <figure class="frame" style="background:none;border:0;box-shadow:none;overflow:visible"><div class="frame"><img src="still52.jpg" alt="Detection result: pothole D40, priority 63 of 100" loading="lazy"></div><figcaption><b>01 · <span class="en">DETECT</span><span class="ar">الكشف</span></b><span class="en">YOLOv8s finds a pothole (D40, confidence 0.82). Priority 63 / 100, band Schedule.</span><span class="ar">YOLOv8s يكتشف حفرة (D40، ثقة 0.82). الأولوية 63 / 100، نطاق جدولة.</span></figcaption></figure>
+      <figure class="frame" style="background:none;border:0;box-shadow:none;overflow:visible"><div class="frame"><img src="still70.jpg" alt="Duplicate warning with the matching earlier report" loading="lazy"></div><figcaption><b>02 · <span class="en">DUPLICATE</span><span class="ar">التكرار</span></b><span class="en">I re-uploaded the same photo as a test. The app flags it as RS-0003 and lets the user add to it or send a new report.</span><span class="ar">رفعت نفس الصورة كاختبار. التطبيق ينبّه إنها RS-0003 ويخيّر بين الإضافة له أو إرسال بلاغ جديد.</span></figcaption></figure>
+      <figure class="frame" style="background:none;border:0;box-shadow:none;overflow:visible"><div class="frame"><img src="still93.jpg" alt="My reports page with status flow" loading="lazy"></div><figcaption><b>03 · <span class="en">TRACK</span><span class="ar">المتابعة</span></b><span class="en">Each report gets a number and a status: new, under review, scheduled, in progress, fixed.</span><span class="ar">كل بلاغ له رقم وحالة: جديد، قيد المراجعة، مجدول، قيد التنفيذ، تم الإصلاح.</span></figcaption></figure>
+    </div>
+    <div class="shots">
+      <div class="frame"><div class="tb"><i></i><i></i><i></i><span>3eye-roadscan.streamlit.app</span></div><img src="app-home.jpg" alt="3-Eye RoadScan home screen" width="1400" height="895"></div>
+      <div class="frame"><div class="tb"><i></i><i></i><i></i><span>3eye-roadscan.streamlit.app/c_report</span></div><img src="app-report.jpg" alt="3-Eye RoadScan report upload screen" width="1200" height="1036"></div>
+    </div>
+  </div>
+
+  <div>
+    <h3><span class="en">From photo to work order</span><span class="ar">من الصورة إلى بلاغ مرتب</span></h3>
+    <p class="sub"><span class="en">Five stages. The model suggests, staff decide.</span><span class="ar">خمس مراحل. النموذج يقترح والموظف يقرر.</span></p>
+    <div class="flow">
+      <div><small>01</small><b><span class="en">Road photo</span><span class="ar">صورة الطريق</span></b><span><span class="en">Uploaded with optional GPS</span><span class="ar">مع موقع GPS اختياري</span></span></div>
+      <div><small>02</small><b>YOLOv8s</b><span><span class="en">Finds D00, D10, D20, D40</span><span class="ar">يكتشف D00 وD10 وD20 وD40</span></span></div>
+      <div><small>03</small><b><span class="en">Priority score</span><span class="ar">درجة الأولوية</span></b><span><span class="en">0–100 from four signals</span><span class="ar">من 0 إلى 100 من أربع إشارات</span></span></div>
+      <div><small>04</small><b><span class="en">Duplicate check</span><span class="ar">فحص التكرار</span></b><span>DINOv2 + FAISS</span></div>
+      <div><small>05</small><b><span class="en">Staff review</span><span class="ar">مراجعة الموظف</span></b><span><span class="en">Confirms every merge</span><span class="ar">يؤكد كل دمج</span></span></div>
+    </div>
+  </div>
+
+  <div>
+    <h3><span class="en">The numbers</span><span class="ar">الأرقام</span></h3>
+    <p class="sub"><span class="en">Measured on our own runs. Speeds are CPU, no GPU.</span><span class="ar">من تجاربنا نحن. السرعات على CPU بدون GPU.</span></p>
+    <div class="big6">
+      <div><b>8,999</b><span><span class="en">images in RDD2022, from 3 countries</span><span class="ar">صورة في RDD2022 من 3 دول</span></span></div>
+      <div><b>4</b><span><span class="en">damage classes detected</span><span class="ar">أنواع تلف يكتشفها النظام</span></span></div>
+      <div><b>0.16–0.19 s</b><span><span class="en">detection per image</span><span class="ar">زمن الكشف للصورة</span></span></div>
+      <div><b>~2–3 s</b><span><span class="en">end to end, photo to result</span><span class="ar">من الصورة للنتيجة كاملة</span></span></div>
+      <div><b>±20%</b><span><span class="en">weight change, top 10 unchanged</span><span class="ar">تغيير الأوزان، أعلى 10 ما تغيّرت</span></span></div>
+      <div><b>8 / 9</b><span><span class="en">duplicates caught with GPS</span><span class="ar">تكرارات اكتُشفت مع GPS</span></span></div>
+    </div>
+  </div>
+
+  <div>
+    <h3><span class="en">Baseline classifier</span><span class="ar">النموذج الأساسي</span></h3>
+    <p class="sub"><span class="en">ResNet-18, macro-F1. The drop on US images is why I call this a prototype.</span><span class="ar">ResNet-18، مقياس macro-F1. انخفاضه على صور أمريكا هو سبب وصفي للمشروع بنموذج أولي.</span></p>
+    <div class="bars">
+      <div class="bl"><span><span class="en">Validation</span><span class="ar">التحقق</span></span><div class="track"><div class="fill" style="--w:49.6%"></div></div><em>0.496</em></div>
+      <div class="bl"><span><span class="en">US images</span><span class="ar">صور أمريكا</span></span><div class="track"><div class="fill" style="--w:36.2%"></div></div><em>0.362</em></div>
+    </div>
+  </div>
+
+  <div>
+    <h3><span class="en">Try the priority score</span><span class="ar">جرّب درجة الأولوية</span></h3>
+    <p class="sub"><span class="en">The same formula as the project: 100 × (0.45 type + 0.20 size + 0.20 count + 0.15 confidence). Each input is scaled 0–1 here. The weights and bands are proposals, not validated by a road authority.</span><span class="ar">نفس معادلة المشروع: 100 × (0.45 النوع + 0.20 الحجم + 0.20 العدد + 0.15 الثقة). كل مدخل بين 0 و1 هنا. الأوزان والنطاقات مقترحة ولم تعتمدها جهة طرق.</span></p>
+    <div class="calc">
+      <div>
+        <label for="ct"><span><span class="en">DAMAGE TYPE</span><span class="ar">نوع التلف</span></span></label>
+        <select id="ct"><option value="1">D40 · Pothole · حفرة (1.0)</option><option value="0.8">D20 · Alligator crack · جلد التمساح (0.8)</option><option value="0.5">D10 · Transverse crack · شق عرضي (0.5)</option><option value="0.4">D00 · Longitudinal crack · شق طولي (0.4)</option></select>
+        <label for="cs"><span><span class="en">SIZE</span><span class="ar">الحجم</span></span><span id="vs">60%</span></label>
+        <input id="cs" type="range" min="0" max="100" value="60">
+        <label for="cc"><span><span class="en">COUNT</span><span class="ar">العدد</span></span><span id="vc">40%</span></label>
+        <input id="cc" type="range" min="0" max="100" value="40">
+        <label for="cf"><span><span class="en">CONFIDENCE</span><span class="ar">الثقة</span></span><span id="vf">85%</span></label>
+        <input id="cf" type="range" min="0" max="100" value="85">
+      </div>
+      <div class="score">
+        <div class="n" id="sn">78</div>
+        <div class="bd" id="sb"></div>
+        <div class="gauge"><i id="g1" style="width:40%"></i><i id="g2" style="width:30%"></i><i id="g3" style="width:30%"></i></div>
+        <p><span class="en">Monitor 0–39 · Schedule 40–69 · Urgent 70–100</span><span class="ar">مراقبة 0–39 · جدولة 40–69 · عاجل 70–100</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3><span class="en">Duplicate finder</span><span class="ar">كاشف التكرار</span></h3>
+    <p class="sub"><span class="en">Two reports merge only when all three conditions hold.</span><span class="ar">بلاغان يندمجان فقط لما تتحقق الشروط الثلاثة.</span></p>
+    <div class="rule"><span>same class</span><span>≤ 30 m</span><span>cosine ≥ 0.80</span><span>(0.92 no GPS)</span></div>
+    <div class="bars">
+      <div class="bl"><span><span class="en">Duplicates caught (test)</span><span class="ar">تكرارات اكتُشفت (اختبار)</span></span><div class="track"><div class="fill" style="--w:88.9%"></div></div><em>8 / 9</em></div>
+      <div class="bl"><span><span class="en">False merges (test)</span><span class="ar">دمج خاطئ (اختبار)</span></span><div class="track"><div class="fill" style="--w:0%"></div></div><em>0 / 24</em></div>
+      <div class="bl"><span><span class="en">False merges (tuning)</span><span class="ar">دمج خاطئ (الضبط)</span></span><div class="track"><div class="fill" style="--w:11.1%"></div></div><em>4 / 36</em></div>
+    </div>
+    <p class="note" style="margin-top:18px"><span class="en">The test set is small, so I read these as a sign the method works, not as a guarantee. Photos taken with a phone gave weaker results and still need confirming.</span><span class="ar">مجموعة الاختبار صغيرة، فأقرأ الأرقام كدليل أن الطريقة تشتغل وليست ضمانًا. الصور الملتقطة بالجوال أعطت نتائج أضعف وتحتاج تأكيدًا.</span></p>
+  </div>
+
+  <div>
+    <h3><span class="en">Technical card</span><span class="ar">البطاقة التقنية</span></h3>
+    <p class="sub"><span class="en">What each component takes in, what it gives out, and how it was measured.</span><span class="ar">كل مكوّن: ما يدخله، ما يخرجه، وكيف تم قياسه.</span></p>
+    <div class="tw"><table class="spec">
+      <thead><tr><th><span class="en">Component</span><span class="ar">المكوّن</span></th><th><span class="en">Model / method</span><span class="ar">النموذج / الطريقة</span></th><th><span class="en">Input → output</span><span class="ar">المدخل ← المخرج</span></th><th><span class="en">Measured</span><span class="ar">القياس</span></th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">Detector</span><span class="ar">الكاشف</span></td><td>YOLOv8s</td><td>photo → boxes (D00, D10, D20, D40) + confidence</td><td>0.16–0.19 s / image, CPU</td></tr>
+        <tr><td><span class="en">Baseline</span><span class="ar">النموذج الأساسي</span></td><td>ResNet-18</td><td>photo → damage class</td><td>macro-F1 0.496 val · 0.362 US</td></tr>
+        <tr><td><span class="en">Priority</span><span class="ar">الأولوية</span></td><td>weighted rule, no training</td><td>type, size, count, confidence → 0–100 + band</td><td>top 10 stable at ±20% weights</td></tr>
+        <tr><td><span class="en">Embedding</span><span class="ar">التمثيل</span></td><td>DINOv2-small</td><td>photo → feature vector</td><td>compared with 2 other methods</td></tr>
+        <tr><td><span class="en">Search</span><span class="ar">البحث</span></td><td>FAISS, cosine</td><td>vector + class + GPS → nearest open report</td><td>8/9 caught · 0/24 false merges</td></tr>
+        <tr><td><span class="en">App</span><span class="ar">التطبيق</span></td><td>Streamlit, Arabic UI</td><td>photo → report with status</td><td>~2–3 s end to end</td></tr>
+      </tbody>
+    </table></div>
+    <div class="two">
+      <div>
+        <div class="grp"><span class="en">Priority weights</span><span class="ar">أوزان الأولوية</span></div>
+        <ul class="chips"><li>type 0.45</li><li>size 0.20</li><li>count 0.20</li><li>confidence 0.15</li></ul>
+        <ul class="chips"><li>D40 1.0</li><li>D20 0.8</li><li>D10 0.5</li><li>D00 0.4</li></ul>
+      </div>
+      <div>
+        <div class="grp"><span class="en">Known limits</span><span class="ar">الحدود المعروفة</span></div>
+        <ul class="lim">
+          <li><span class="en">Cross-country drop: macro-F1 0.496 on validation, 0.362 on US images.</span><span class="ar">انخفاض عبر الدول: macro-F1 ‏0.496 على التحقق، ‏0.362 على صور أمريكا.</span></li>
+          <li><span class="en">Duplicate thresholds come from a small set: 4 of 36 false merges while tuning, 0 of 24 on test.</span><span class="ar">عتبات التكرار من مجموعة صغيرة: 4 من 36 دمج خاطئ أثناء الضبط، و0 من 24 في الاختبار.</span></li>
+          <li><span class="en">Priority weights and bands are proposals, not validated by a road authority.</span><span class="ar">أوزان الأولوية ونطاقاتها مقترحات لم تعتمدها جهة طرق.</span></li>
+          <li><span class="en">Phone photos gave weaker results and still need confirming.</span><span class="ar">صور الجوال أعطت نتائج أضعف وتحتاج تأكيدًا.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+<script>
+(function(){var b=document.getElementById("cp");if(!b)return;b.addEventListener("click",function(){var t="fajersr3@gmail.com";var done=function(){var o=b.innerHTML;b.textContent=document.documentElement.lang==="ar"?"تم النسخ":"Copied";setTimeout(function(){b.innerHTML=o},1600)};
+  function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(e){}a.remove()}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else{fb()}})})();
+</script>
+<script>
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("video").forEach(function(v){v.removeAttribute("autoplay");v.pause()})}
+</script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function up(){
+    var t=parseFloat($("ct").value),s=$("cs").value/100,c=$("cc").value/100,f=$("cf").value/100;
+    $("vs").textContent=$("cs").value+"%";$("vc").textContent=$("cc").value+"%";$("vf").textContent=$("cf").value+"%";
+    var sc=Math.round(100*(0.45*t+0.20*s+0.20*c+0.15*f));
+    $("sn").textContent=sc;
+    var ar=document.documentElement.lang==="ar";
+    $("sb").textContent=sc>=70?(ar?"عاجل":"Urgent"):sc>=40?(ar?"جدولة":"Schedule"):(ar?"مراقبة":"Monitor");
+    $("g1").className=sc<40?"on":"";$("g2").className=(sc>=40&&sc<70)?"on":"";$("g3").className=sc>=70?"on":"";
+  }
+  ["ct","cs","cc","cf"].forEach(function(i){$(i).addEventListener("input",up)});
+  $("lang").addEventListener("click",up);
+  up();
+})();
+</script>
+
+<section id="skills">
+  <div class="rail"><span class="en">Skills</span><span class="ar">المهارات</span></div>
+  <div>
+    <h2><span class="en">Tools I work with.</span><span class="ar">الأدوات التي أشتغل بها.</span></h2>
+    <div class="grp"><span class="en">Languages</span><span class="ar">اللغات</span></div>
+    <ul class="chips"><li>Python</li><li>SQL (basics)</li><li>Java</li></ul>
+    <div class="grp"><span class="en">Machine learning</span><span class="ar">تعلّم الآلة</span></div>
+    <ul class="chips"><li>scikit-learn</li><li>pandas</li><li>NumPy</li></ul>
+    <div class="grp"><span class="en">Deep learning &amp; vision</span><span class="ar">التعلم العميق والرؤية</span></div>
+    <ul class="chips"><li>PyTorch</li><li>CNNs · ResNet-18</li><li>YOLOv8</li><li>DINOv2</li><li>FAISS</li></ul>
+    <div class="grp"><span class="en">Workflow</span><span class="ar">بيئة العمل</span></div>
+    <ul class="chips"><li>Git</li><li>Jupyter</li><li>Kaggle</li><li>Power BI (basics)</li></ul>
+  </div>
+</section>
+
+<section id="path">
+  <div class="rail"><span class="en">Path</span><span class="ar">المسيرة</span></div>
+  <div>
+    <h2><span class="en">Training, work and study.</span><span class="ar">التدريب والعمل والدراسة.</span></h2>
+    <div class="row"><div class="when">SEP – NOV 2026</div><div><h3><span class="en">AI Engineer Program (AIEP) trainee</span><span class="ar">متدربة في برنامج مهندس الذكاء الاصطناعي (AIEP)</span></h3><p class="muted" style="margin:0">Olo Academy × MCIT · 200 h<br><span class="en">Applied ML, deep learning and computer vision, ending in the 3-Eye RoadScan capstone.</span><span class="ar">تعلّم آلة تطبيقي وتعلم عميق ورؤية حاسوبية، وتنتهي بمشروع 3-Eye RoadScan.</span></p></div></div>
+    <div class="row"><div class="when">JUN – AUG 2025</div><div><h3><span class="en">IT cooperative trainee, SEC</span><span class="ar">متدربة تعاوني في تقنية المعلومات، SEC</span></h3>
+      <ul><li><span class="en">Resolved about 15 support issues across 30+ workstations.</span><span class="ar">حللت قرابة 15 مشكلة دعم على أكثر من 30 جهازًا.</span></li><li><span class="en">Wrote reports and documentation for the team.</span><span class="ar">كتبت تقارير وتوثيقًا للفريق.</span></li></ul></div></div>
+    <div class="row"><div class="when">KKU</div><div><h3><span class="en">B.Sc. Computer Science, AI track</span><span class="ar">بكالوريوس علوم الحاسب، مسار الذكاء الاصطناعي</span></h3><p class="muted" style="margin:0">King Khalid University · GPA 4.41 / 5 · <span class="en">Second Class Honors</span><span class="ar">مرتبة الشرف الثانية</span></p></div></div>
+    <div class="grp"><span class="en">Certifications</span><span class="ar">الشهادات</span></div>
+    <ul class="chips"><li>AIEP Certificate · 2026</li><li>AI Literacy · IBM SkillsBuild · 2026</li><li><span class="en">IBM Data Analyst · in progress</span><span class="ar">IBM Data Analyst · قيد الدراسة</span></li></ul>
+    <div class="grp"><span class="en">Languages</span><span class="ar">اللغات</span></div>
+    <ul class="chips"><li><span class="en">Arabic · native</span><span class="ar">العربية · الأم</span></li><li><span class="en">English · professional</span><span class="ar">الإنجليزية · احترافي</span></li></ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="rail"><span class="en">Contact</span><span class="ar">تواصل</span></div>
+  <div>
+    <h2><span class="en">Let's talk about a role or a project.</span><span class="ar">خلنا نتكلم عن وظيفة أو مشروع.</span></h2>
+    <p class="muted"><span class="en">Email or a LinkedIn message both reach me.</span><span class="ar">أسرع طريقة للتواصل رسالة على لينكدإن.</span></p>
+    <div class="cta">
+      <a class="p" href="mailto:fajersr3@gmail.com">fajersr3@gmail.com</a>
+      <button class="btn" id="cp" type="button" style="padding:13px 18px"><span class="en">Copy email</span><span class="ar">نسخ الإيميل</span></button>
+      <a href="https://www.linkedin.com/in/fajer-alshahrani" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fajer-alshahrani" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap"><footer>
+  <p class="big">Fajer Al-Shahrani</p>
+  <small>Abha · KSA · 2026</small>
+</footer></div>
+
+<script>
+(function(){
+  var r=document.documentElement;
+  function setLang(l){r.lang=l;r.dir=l==="ar"?"rtl":"ltr";document.getElementById("lang").textContent=l==="ar"?"EN":"عربي";try{localStorage.setItem("fa-lang",l)}catch(e){}}
+  var saved="en";try{saved=localStorage.getItem("fa-lang")||"en"}catch(e){}
+  setLang(saved);
+  document.getElementById("lang").onclick=function(){setLang(r.lang==="ar"?"en":"ar")};
+  document.getElementById("theme").onclick=function(){
+    var dark=r.getAttribute("data-theme")?r.getAttribute("data-theme")==="dark":!matchMedia("(prefers-color-scheme: light)").matches;
+    r.setAttribute("data-theme",dark?"light":"dark");
+  };
+})();
+</script>
+<script>
+(function(){
+var r=document.documentElement,rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+r.classList.add("js");
+/* network canvas */
+var cv=document.getElementById("net"),cx=cv.getContext("2d"),W=0,H=0,pts=[],m={x:-999,y:-999},dpr=Math.min(window.devicePixelRatio||1,2),on=true;
+function rgba(h,a){h=h.replace("#","");if(h.length===3)h=h.replace(/./g,"$&$&");var n=parseInt(h,16);return "rgba("+(n>>16&255)+","+(n>>8&255)+","+(n&255)+","+a+")"}
+function size(){var b=cv.getBoundingClientRect();W=b.width;H=b.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);var n=Math.min(Math.round(W*H/9000),110);pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
+function draw(){
+  var c=getComputedStyle(r).getPropertyValue("--accent").trim()||"#c9a45c";
+  cx.clearRect(0,0,W,H);
+  for(var i=0;i<pts.length;i++){var p=pts[i];
+    if(!rm){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      var dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy);if(d<170&&d>1){p.x+=dx/d*.6;p.y+=dy/d*.6}}
+    for(var j=i+1;j<pts.length;j++){var q=pts[j],e=Math.hypot(p.x-q.x,p.y-q.y);
+      if(e<120){cx.strokeStyle=rgba(c,(1-e/120)*.28);cx.lineWidth=.8;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}
+    var dm=Math.hypot(m.x-p.x,m.y-p.y);
+    if(dm<170){cx.strokeStyle=rgba(c,(1-dm/170)*.6);cx.lineWidth=1;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(m.x,m.y);cx.stroke()}
+    cx.fillStyle=rgba(c,.75);cx.beginPath();cx.arc(p.x,p.y,1.6,0,6.283);cx.fill();
+  }
+  if(on&&!rm)requestAnimationFrame(draw)
+}
+size();draw();
+window.addEventListener("resize",function(){size();if(rm)draw()});
+cv.parentNode.addEventListener("pointermove",function(e){var b=cv.getBoundingClientRect();m.x=e.clientX-b.left;m.y=e.clientY-b.top});
+cv.parentNode.addEventListener("pointerleave",function(){m.x=m.y=-999});
+new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!on){on=true;draw()}on=v}).observe(cv);
+/* typed roles */
+var words={en:["road-damage detectors","similarity search","honest evaluations","ranking systems"],ar:["كاشفات لتلف الطرق","بحثًا بالتشابه","تقييمات صادقة","أنظمة ترتيب أولويات"]},tw=document.getElementById("tw"),wi=0,ci=0,del=false;
+function tick(){var l=r.lang=="ar"?"ar":"en",w=words[l][wi%words[l].length];
+  if(!del){ci++;if(ci>=w.length){del=true;tw.textContent=w;setTimeout(tick,1700);return}}
+  else{ci--;if(ci<=0){del=false;ci=0;wi++}}
+  tw.textContent=w.slice(0,ci);setTimeout(tick,del?32:70)}
+if(rm){tw.textContent=words.en[0]}else{tw.textContent="";tick()}
+/* reveal + counters */
+function count(el){var t=el.textContent,mm=t.match(/[\d.]+/);if(!mm||rm)return;var to=parseFloat(mm[0]),dec=(mm[0].split(".")[1]||"").length,s=performance.now();(function f(n){var k=Math.min((n-s)/1400,1),e=1-Math.pow(1-k,3);el.textContent=t.replace(mm[0],(to*e).toFixed(dec));if(k<1)requestAnimationFrame(f)})(s)}
+var items=document.querySelectorAll("section > *, .nums div, .cols > div, .row, footer");
+items.forEach(function(el,i){el.classList.add("rv");var sib=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.transitionDelay=Math.min(sib,5)*80+"ms"});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");var b=e.target.querySelector("b");if(b&&e.target.parentNode.classList.contains("nums"))count(b);io.unobserve(e.target)}})},{threshold:.15});
+items.forEach(function(el){io.observe(el)});
+setTimeout(function(){items.forEach(function(el){el.classList.add("in")})},4000);
+/* progress + glow */
+var prog=document.getElementById("prog"),glow=document.getElementById("glow");
+window.addEventListener("scroll",function(){var h=r.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
+window.addEventListener("pointermove",function(e){glow.style.transform="translate("+e.clientX+"px,"+e.clientY+"px)"},{passive:true});
+})();
+</script>
+
+</body></html>
